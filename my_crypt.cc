@@ -330,10 +330,12 @@ CryptResult DecryptAes128Ecb(const unsigned char* key,
 }
 
 CryptResult RandomBytes(unsigned char* buf, int num) {
+#if 0
   RAND_METHOD* rand = RAND_OpenSSL();
   if (rand == NULL || rand->bytes(buf, num) != 1) {
     return CRYPT_OPENSSL_ERROR;
   }
+#endif
   return CRYPT_OK;
 }
 

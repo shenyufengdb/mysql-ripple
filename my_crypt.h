@@ -24,7 +24,7 @@
 #include "my_crypt_constants.h"
 #include "my_global.h"
 #include "mysql.h"
-#include "my_attribute.h"
+//#include "my_attribute.h"
 #include "my_dbug.h"
 
 #ifdef __cplusplus

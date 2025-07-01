@@ -19,8 +19,9 @@
 #define MYSYS_MY_CRYPT_KEY_MANAGMENT_H_
 
 #include "my_global.h"
-#include "my_pthread.h"
+#include "my_thread.h"
 #include "mysql/psi/psi.h"
+#include "mysql/psi/mysql_thread.h"
 
 extern my_bool opt_danger_danger_use_dbug_keys;
 

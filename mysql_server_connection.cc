@@ -24,7 +24,7 @@
 #include "mysql.h"
 #include "mysqld_error.h"
 // Vio
-#include "private/violite.h"
+#include "violite.h"
 
 
 namespace mysql_ripple {

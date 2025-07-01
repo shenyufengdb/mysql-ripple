@@ -23,7 +23,7 @@
 #include "mysql_constants.h"
 #include "plugin.h"
 
-#include "private/violite.h"
+#include "violite.h"
 
 namespace mysql_ripple {
 

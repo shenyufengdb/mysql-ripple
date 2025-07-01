@@ -19,6 +19,7 @@
 
 #include <map>
 #include <string>
+#include <cstring>
 #include <cstdint>
 #include <vector>
 
