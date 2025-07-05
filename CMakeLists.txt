@@ -69,6 +69,7 @@ SET(RIPPLE_SOURCES
         ${CMAKE_SOURCE_DIR}/mysql_protocol.cc
         ${CMAKE_SOURCE_DIR}/mysql_server_port.cc
         ${CMAKE_SOURCE_DIR}/my_crypt.cc
+        ${CMAKE_SOURCE_DIR}/init.cc
         ${CMAKE_SOURCE_DIR}/executor.cc
         ${CMAKE_SOURCE_DIR}/purge_thread.cc
         ${CMAKE_SOURCE_DIR}/mysql_init.cc
@@ -83,6 +84,7 @@ SET(RIPPLE_SOURCES
         ${CMAKE_SOURCE_DIR}/my_crypt_key_management.cc
         ${CMAKE_SOURCE_DIR}/my_crypt_key_management_impl.cc
         ${CMAKE_SOURCE_DIR}/mysql_server_port_tcpip.cc
+        ${CMAKE_SOURCE_DIR}/flags.cc
 )
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/extra/absl/lts_2019_08_08/)
@@ -102,11 +104,11 @@ find_library(MYSQLCLIENT
         PATHS /usr/lib64/mysql)
 
 ADD_EXECUTABLE(binlogserver ${RIPPLE_SOURCES})
-target_compile_options(binlogserver PRIVATE -UHAVE_PSI_MEMORY_INTERFACE)
+target_compile_options(binlogserver PRIVATE -DHAVE_PSI_MEMORY_INTERFACE -DHAVE_PSI_INTERFACE)
 
 MESSAGE(STATUS "mysqlclient is: ${MYSQLCLIENT}")
 MESSAGE(STATUS "openssl is: ${OPENSSL}")
 MESSAGE(STATUS "crypto is: ${CRYPTO}")
 
-TARGET_LINK_LIBRARIES(binlogserver glog absl_base absl_hashtablez_sampler
+TARGET_LINK_LIBRARIES(binlogserver glog absl_base absl_hashtablez_sampler gflags
         absl_raw_hash_set absl_hash dl z rt ${OPENSSL} ${CRYPTO} ${MYSQLCLIENT} pthread stdc++fs)

@@ -18,7 +18,7 @@
 #include <arpa/inet.h>
 #include <cstring>
 
-#include "my_pthread.h"
+#include "my_thread.h"
 
 my_bool opt_danger_danger_use_dbug_keys = 0;
 

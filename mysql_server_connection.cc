@@ -109,7 +109,7 @@ ServerConnection* ServerConnection::Accept(Vio *vio) {
   MYSQL *mysql = mysql_init(0);
 
   int flags = 0;
-  if (my_net_init(&mysql->net, vio, NULL, flags)) {
+  if (my_net_init(&mysql->net, vio)) {
     mysql->net.vio = nullptr;
     mysql_close(mysql);
     return nullptr;
